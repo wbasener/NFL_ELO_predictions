@@ -139,14 +139,14 @@ def prep_team_stats_df(data):
     data['pass_completion_rate_away'] = np.nan_to_num(
         comp_att_away[0].to_numpy(dtype=float) / comp_att_away[1].to_numpy(dtype=float), nan=0.0)
     data['pass_attempt_away'] = comp_att_away[1].to_numpy(dtype=int)
-    data.drop('comp_att_away', 1, inplace=True)
+    data.drop('comp_att_away', axis=1, inplace=True)
 
     comp_att_home = data['comp_att_home'].str.split('-', expand=True)
     data['complete_passes_home'] = comp_att_home[0].to_numpy(dtype=int)
     data['pass_completion_rate_home'] = np.nan_to_num(
         comp_att_home[0].to_numpy(dtype=float) / comp_att_home[1].to_numpy(dtype=float), nan=0.0)
     data['pass_attempt_home'] = comp_att_home[1].to_numpy(dtype=int)
-    data.drop('comp_att_home', 1, inplace=True)
+    data.drop('comp_att_home', axis=1, inplace=True)
 
     # split string info for sacks to float succeses and rate
     sacks_away = data['sacks_away'].str.split('-', expand=True)
@@ -172,14 +172,14 @@ def prep_team_stats_df(data):
     data['redzone_rate_away'] = np.nan_to_num(
         redzone_away[0].to_numpy(dtype=float) / redzone_away[1].to_numpy(dtype=float), nan=0.0)
     data['redzone_attempts_away'] = redzone_away[1].to_numpy(dtype=int)
-    data.drop('redzone_away', 1, inplace=True)
+    data.drop('redzone_away', axis=1, inplace=True)
 
     redzone_home = data['redzone_home'].str.split('-', expand=True)
     data['redzone_sucess_home'] = redzone_home[0].to_numpy(dtype=int)
     data['redzone_rate_home'] = np.nan_to_num(
         redzone_home[0].to_numpy(dtype=float) / redzone_home[1].to_numpy(dtype=float), nan=0.0)
     data['redzone_attempts_home'] = redzone_home[1].to_numpy(dtype=int)
-    data.drop('redzone_home', 1, inplace=True)
+    data.drop('redzone_home', axis=1, inplace=True)
 
     # split string info for completions to float succeses and rate
     possession_away = data['possession_away'].str.split(':', expand=True)

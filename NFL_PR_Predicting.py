@@ -91,7 +91,7 @@ for r in PowerRank_inputs:
             Home_Team_Pwr, Home_Team_Pwr_new, team_names[r[0]],
             Away_Team_Pwr, Away_Team_Pwr_new, team_names[r[1]], SDiff, SDiff_predicted, x)
         NFL.plot_priors(mn, stdv, Home_Team_Pwr_prior, team_names[r[0]], Away_Team_Pwr_prior, team_names[r[1]])
-        NFL.plot_priors(mn, stdv, Home_Team_Pwr_prior_new, team_names[r[0]], Away_Team_Pwr_prior_new, team_names[r[1]])
+        NFL.plot_priors(mn, stdv, Home_Team_Pwr_prior_new, team_names[r[0]]+' (updated)', Away_Team_Pwr_prior_new, team_names[r[1]]+' (updated)')
         if SDiff_predicted[0] > 0:
             print('Prediction: Home Team by '+str(SDiff_predicted[0]))
         else:
